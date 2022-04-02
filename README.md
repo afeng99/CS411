@@ -8,3 +8,4 @@ Team Members:
 - Pratima K Vaidyanathan
 - Xiao Wen
 
+React App/Flask connection tutorial: https://dev.to/nagatodev/how-to-connect-flask-to-reactjs-1k8i
