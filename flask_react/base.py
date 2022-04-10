@@ -1,7 +1,7 @@
 
 import requests
 from flask import Flask
-
+from flask import request
 api = Flask(__name__)
 
 CLIENT_ID = 'OAuth'
@@ -35,9 +35,10 @@ def my_song(track_id):
     print(r)
     return r
 
-@api.route('/search/<songname>/<artistname>')
-def search(songname,artistname):
-    print()
+@api.route('/search')
+def search():
+    songname = request.args.get('songname', default = "Sorry", type = str)
+    artistname = request.args.get('artistname', default = "Justin Bieber", type = str)
     SEARCH_URL = 'https://api.spotify.com/v1/search'
     # create and fill dictionary with parameters for spotify search API GET request
     # parameters: search for keyword in titles of tracks, top 50 results in US market
