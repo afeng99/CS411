@@ -2,7 +2,12 @@
 import requests
 from flask import Flask
 from flask import request
+import json
 api = Flask(__name__)
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+from bs4 import BeautifulSoup
+import requests
 
 CLIENT_ID = 'OAuth'
 CLIENT_SECRET = 'OAuth'
@@ -75,10 +80,50 @@ def search():
     else:
         spot_track_id = (resp['tracks']['items'][indexsaver]['uri'])
         track_ID = spot_track_id[14:]
-        print (track_ID)
+        #print (track_ID)
         r = my_song(track_ID)
+        print(scrape_lyrics(artistname,songname))
         return r
 
-# test cases
-#my_song()
-#search("Location","Khalid")
+def scrape_lyrics(artistname, songname):
+    artistname2 = str(artistname.replace(' ','-')) if ' ' in artistname else str(artistname)
+    songname2 = str(songname.replace(' ','-')) if ' ' in songname else str(songname)
+    call = 'https://genius.com/'+ artistname2 + '-' + songname2 + '-' + 'lyrics'
+    #print(call)
+    page = requests.get(call)
+    #page = requests.get('https://genius.com/Khalid-Location-lyrics')
+    #print(page.text)
+    html = BeautifulSoup(page.text, 'html.parser')
+    #print(html)
+    lyrics1 = html.find("div", class_="lyrics")
+    lyrics2 = html.find("div", class_="Lyrics__Container-sc-1ynbvzw-6")
+    if lyrics1:
+        lyrics = lyrics1.get_text()
+    elif lyrics2:
+        lyrics = lyrics2.get_text()
+    elif lyrics1 == lyrics2 == None:
+        lyrics = None
+
+    return lyrics
+
+def getAnalysis(lyrics):
+    authenticator = IAMAuthenticator('{apikey}')
+    tone_analyzer = ToneAnalyzerV3(
+        version='2017-09-21',
+        authenticator=authenticator
+    )
+
+    tone_analyzer.set_service_url('{url}')
+
+    text = lyrics
+
+    tone_analysis = tone_analyzer.tone(
+        {'text': text},
+        content_type='application/json'
+    ).get_result()
+    print(json.dumps(tone_analysis, indent=2))
+
+
+    # test cases
+    #my_song()
+    #search("Location","Khalid")

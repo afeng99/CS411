@@ -3,7 +3,6 @@ import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
 
-
 function App() {
  const [songData, setSongData] = useState(null)
  const [songValue, setSongValue] = useState(null)
@@ -17,7 +16,7 @@ function App() {
     .then((response) => {
       const res =response.data
       setSongData(({
-
+        lyrics: res.lyrics,
         danceability: res.danceability,
         energy: res.energy,
         loudness: res.loudness,
@@ -49,6 +48,7 @@ function App() {
       {songData && <div>
             <p>{"Name: " + songValue }</p>
             <p>{"Artist: " + artistValue}</p>
+            <p>Lyrics:  {songData.lyrics} </p>
             <p>Danceability: {songData.danceability}</p>
             <p>Energy: {songData.energy}</p>
             <p>Loudness: {songData.loudness}</p>
