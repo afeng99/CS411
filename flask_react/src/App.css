@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210918/pngtree-note-music-logo-watercolor-background-image_903000.png");
 }
 
 .App-logo {
@@ -14,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgba(33, 37, 40, 0.756);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +37,39 @@
     transform: rotate(360deg);
   }
 }
+a {
+  color: burlywood;
+}
+a :visited {
+  color: darksalmon;
+}
+
+p {
+  color: aliceblue;
+  font-style: italic;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+fieldset {
+  border: 2px solid rgb(255, 242, 0);
+  border-radius: 10px;
+}
+legend {
+  font-size: larger;
+  font-family: "Courier New", Courier, monospace;
+}
+button {
+  border-radius: 15px;
+  color: bisque;
+  background-color: coral;
+}
+
