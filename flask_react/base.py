@@ -4,10 +4,20 @@ from flask import Flask
 from flask import request
 import json
 api = Flask(__name__)
+
+#Spotify Imports
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+
+#Genius Imports
 from bs4 import BeautifulSoup
 import requests
+import re
+import os
+
+#Watson Imports
+from ibm_watson import ToneAnalyzerV3
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 CLIENT_ID = 'OAuth'
 CLIENT_SECRET = 'OAuth'
@@ -73,28 +83,22 @@ def search():
         if (artistname in song_artists[x]):
             indexsaver = x
             break
-    #print (song_names)
-    #print (song_artists)
     if (indexsaver == None):
         return None
     else:
         spot_track_id = (resp['tracks']['items'][indexsaver]['uri'])
         track_ID = spot_track_id[14:]
-        #print (track_ID)
         r = my_song(track_ID)
-        print(scrape_lyrics(artistname,songname))
+        lyrics = scrape_lyrics(artistname,songname)
+        print(getAnalysis(lyrics))
         return r
 
 def scrape_lyrics(artistname, songname):
     artistname2 = str(artistname.replace(' ','-')) if ' ' in artistname else str(artistname)
     songname2 = str(songname.replace(' ','-')) if ' ' in songname else str(songname)
     call = 'https://genius.com/'+ artistname2 + '-' + songname2 + '-' + 'lyrics'
-    #print(call)
     page = requests.get(call)
-    #page = requests.get('https://genius.com/Khalid-Location-lyrics')
-    #print(page.text)
     html = BeautifulSoup(page.text, 'html.parser')
-    #print(html)
     lyrics1 = html.find("div", class_="lyrics")
     lyrics2 = html.find("div", class_="Lyrics__Container-sc-1ynbvzw-6")
     if lyrics1:
@@ -103,27 +107,17 @@ def scrape_lyrics(artistname, songname):
         lyrics = lyrics2.get_text()
     elif lyrics1 == lyrics2 == None:
         lyrics = None
-
+    lyrics = re.sub(r'[\(\[].*?[\)\]]', '', lyrics)
+    lyrics = os.linesep.join([s for s in lyrics.splitlines() if s])
     return lyrics
 
 def getAnalysis(lyrics):
-    authenticator = IAMAuthenticator('{apikey}')
+    authenticator = IAMAuthenticator('OAuth')
     tone_analyzer = ToneAnalyzerV3(
         version='2017-09-21',
         authenticator=authenticator
     )
+    tone_analyzer.set_service_url('https://api.us-east.tone-analyzer.watson.cloud.ibm.com')
 
-    tone_analyzer.set_service_url('{url}')
-
-    text = lyrics
-
-    tone_analysis = tone_analyzer.tone(
-        {'text': text},
-        content_type='application/json'
-    ).get_result()
-    print(json.dumps(tone_analysis, indent=2))
-
-
-    # test cases
-    #my_song()
-    #search("Location","Khalid")
+    tone_analysis = tone_analyzer.tone({'text': lyrics}, sentences=False).get_result()
+    return (tone_analysis)
