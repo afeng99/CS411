@@ -1,0 +1,76 @@
+.SongSearch {
+    text-align: center;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210918/pngtree-note-music-logo-watercolor-background-image_903000.png");
+  }
+  
+  .SongSearch-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .SongSearch-logo {
+      animation: SongSearch-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .SongSearch-header {
+    background-color: rgba(33, 37, 40, 0.756);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .SongSearch-link {
+    color: #61dafb;
+  }
+  
+  @keyframes SongSearch-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  a {
+    color: burlywood;
+  }
+  a :visited {
+    color: darksalmon;
+  }
+  
+  p {
+    color: aliceblue;
+    font-style: italic;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline;
+  }
+  
+  fieldset {
+    border: 2px solid rgb(255, 242, 0);
+    border-radius: 10px;
+  }
+  legend {
+    font-size: larger;
+    font-family: "Courier New", Courier, monospace;
+  }
+  button {
+    border-radius: 15px;
+    color: bisque;
+    background-color: coral;
+  }
+  
+  

@@ -1,104 +1,23 @@
-import { useState } from "react";
-import axios from "axios";
-import logo from "./logo.svg";
-import "./App.css";
+import React, {Component} from 'react';
+import { BrowserRouter, Route, Switch, hashHistory, Routes } from 'react-router-dom';
+import Login from './components/Login';
+import SongSearch from './components/SongSearch';
+ 
 
-function App() {
-  const [songData, setSongData] = useState(null);
-  const [songValue, setSongValue] = useState(null);
-  const [artistValue, setArtistValue] = useState(null);
+class App extends Component {
 
-  function getData() {
-    axios({
-      method: "GET",
-      url: "/search?songname=" + songValue + "&artistname=" + artistValue,
-    })
-      .then((response) => {
-        const res = response.data;
-        setSongData({
-          lyrics: res.lyrics,
-          danceability: res.danceability,
-          energy: res.energy,
-          loudness: res.loudness,
-          acousticness: res.acousticness,
-          instrumentalness: res.instrumentalness,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
+  render() {
+    return (      
+      <BrowserRouter>
+        <div>
+            <Routes>
+              <Route path="/" element={<Login/>}/>
+              <Route path="/song_search" element={<SongSearch/>}/>    
+           </Routes>
+        </div> 
+      </BrowserRouter>
+    );
   }
-
-  function handleSongChange(event) {
-    setSongValue(event.target.value);
-  }
-  function handleArtistChange(event) {
-    setArtistValue(event.target.value);
-  }
-  return (
-    <div className="App">
-      <header className="App-header">
-        <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          &nbsp;&nbsp;&nbsp;
-          <li>
-            <a href="#history">History</a>
-          </li>
-          &nbsp;&nbsp;&nbsp;
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-          &nbsp;&nbsp;&nbsp;
-          <li>
-            <a href="#about">About</a>
-          </li>
-        </ul>
-
-        <fieldset>
-          <legend>Welcome</legend>
-          <ul>
-            <li>
-              <p>Song Name:</p>
-              <input
-                type="text"
-                value={songValue}
-                onChange={handleSongChange}
-              />
-            </li>
-            <li>
-              <p>Artist Name:</p>
-              <input
-                type="text"
-                value={artistValue}
-                onChange={handleArtistChange}
-              />
-            </li>
-          </ul>
-          <p>To get song information: </p>
-
-          <button onClick={getData}>Click me</button>
-          {songData && (
-            <div>
-              <p>{"Name: " + songValue}</p>
-              <p>{"Artist: " + artistValue}</p>
-              <p>Lyrics: {songData.lyrics} </p>
-              <p>Danceability: {songData.danceability}</p>
-              <p>Energy: {songData.energy}</p>
-              <p>Loudness: {songData.loudness}</p>
-              <p>Acousticness: {songData.acousticness}</p>
-              <p>Instrumentalness: {songData.instrumentalness}</p>
-            </div>
-          )}
-        </fieldset>
-      </header>
-    </div>
-  );
 }
-
+ 
 export default App;
