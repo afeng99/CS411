@@ -1,6 +1,7 @@
 .SongSearch {
     text-align: center;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210918/pngtree-note-music-logo-watercolor-background-image_903000.png");
+    background-image: url("https://www.law.com/image/EM/TX/MusicNotesBackground-Article-201504292126.jpg");
+    
   }
   
   .SongSearch-logo {
@@ -15,7 +16,7 @@
   }
   
   .SongSearch-header {
-    background-color: rgba(33, 37, 40, 0.756);
+    background-color: rgba(33, 37, 40, 0.258);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -36,12 +37,6 @@
     to {
       transform: rotate(360deg);
     }
-  }
-  a {
-    color: burlywood;
-  }
-  a :visited {
-    color: darksalmon;
   }
   
   p {
@@ -68,9 +63,15 @@
     font-family: "Courier New", Courier, monospace;
   }
   button {
-    border-radius: 15px;
+    border-radius: 60px;
     color: bisque;
-    background-color: coral;
+    background-color: rgb(255, 179, 80);
+    width: 120px;
+    height: 40px;
+    font-size: large;
+    font-family:'Courier New', Courier, monospace;
+    font-style: oblique;
   }
+  
   
   
