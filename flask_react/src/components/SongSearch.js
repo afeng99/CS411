@@ -41,23 +41,7 @@ function SongSearch() {
   return (
     <div className="SongSearch">
       <header className="SongSearch-header">
-        <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          &nbsp;&nbsp;&nbsp;
-          <li>
-            <a href="#history">History</a>
-          </li>
-          &nbsp;&nbsp;&nbsp;
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-          &nbsp;&nbsp;&nbsp;
-          <li>
-            <a href="#about">About</a>
-          </li>
-        </ul>
+
 
         <fieldset>
           <legend>Welcome</legend>
@@ -101,3 +85,4 @@ function SongSearch() {
 }
 
 export default SongSearch;
+
