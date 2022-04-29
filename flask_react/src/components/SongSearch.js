@@ -41,7 +41,7 @@ function SongSearch() {
   return (
     <div className="SongSearch">
       <header className="SongSearch-header">
-
+        <a href="/">Home Page</a>
 
         <fieldset>
           <legend>Welcome</legend>
@@ -85,4 +85,3 @@ function SongSearch() {
 }
 
 export default SongSearch;
-
