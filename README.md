@@ -35,7 +35,7 @@ Authentication with a Spotify developer key is needed. Please look [here](https:
 To retrieve the sentiment analysis from Watson, an IBM account with an API key from before January 1, 2022 is needed (Watson is no longer servicing new users). 
 
 ## Running the Application
-# In terminal, clone the repo and open the folder
+### In terminal, clone the repo and open the folder
 ```
 $ git clone https://github.com/afeng99/CS411.git
 $ cd flask_react
