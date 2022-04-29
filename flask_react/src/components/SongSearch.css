@@ -72,6 +72,10 @@
     font-family:'Courier New', Courier, monospace;
     font-style: oblique;
   }
+  a {
+    color: burlywood;
+    font-family: 'Times New Roman', Times, serif;
+  }
   
   
   
