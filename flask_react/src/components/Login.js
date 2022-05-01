@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Login.css";
 
-const CLIENT_ID = 'CLIENT ID'
+const CLIENT_ID = '66d4dc55bde841f68636140e078d7076'
 const REDIRECT_URI = 'http://localhost:3000/song_search'
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
 const RESPONSE_TYPE = "token"
