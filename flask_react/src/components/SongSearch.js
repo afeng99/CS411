@@ -77,7 +77,7 @@ function SongSearch() {
               <p>Loudness: {songData.loudness}</p>
               <p>Acousticness: {songData.acousticness}</p>
               <p>Instrumentalness: {songData.instrumentalness}</p>
-              <p>Artwork: {songData.weblink}</p>
+              <a href = {songData.weblink}> image </a>
             </div>
           )}
         </fieldset>
