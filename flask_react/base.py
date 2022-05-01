@@ -103,6 +103,7 @@ def search():
         songemotion = watsonanalysis['document_tone']['tones'][0]['tone_id']
         print (songemotion)
         artworkdata = get_art(songemotion)
+        r["lyrics"] = lyrics
         r['weblink'] = artworkdata[0]
         r['arttitle'] = artworkdata[1]
         print (r)
@@ -140,7 +141,7 @@ def getAnalysis(lyrics):
 def get_art(emotion):
     db = client.artworks
     indexat = 0
-    randint = 0 #random.randint(0, 2)
+    randint = random.randint(0, 50)
 
     collectionnames = db.list_collection_names()
     for coll_name in collectionnames:
