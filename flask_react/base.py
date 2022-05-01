@@ -22,8 +22,8 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 #MongoDB 
 import pymongo
+import random
 from flask_pymongo import PyMongo
-
 from pymongo import MongoClient
 MONGO_URI = 'mongodb+srv://sweproject:AUTH@cs411.gjdy6.mongodb.net/artworks?retryWrites=true&w=majority'
 client = MongoClient(MONGO_URI)
@@ -92,6 +92,7 @@ def search():
             indexsaver = x
             break
     if (indexsaver == None):
+        print ("Song Was Not Found")
         return None
     else:
         spot_track_id = (resp['tracks']['items'][indexsaver]['uri'])
@@ -101,7 +102,9 @@ def search():
         watsonanalysis = getAnalysis(lyrics)
         songemotion = watsonanalysis['document_tone']['tones'][0]['tone_id']
         print (songemotion)
-        r['weblink'] = get_art(songemotion)
+        artworkdata = get_art(songemotion)
+        r['weblink'] = artworkdata[0]
+        r['arttitle'] = artworkdata[1]
         print (r)
         return r
 
@@ -135,16 +138,23 @@ def getAnalysis(lyrics):
     return (tone_analysis)
 
 def get_art(emotion):
-    print ("Hello Hello")
     db = client.artworks
-
     indexat = 0
-    randint = 0
-    for coll_name in db.list_collection_names():
+    randint = 0 #random.randint(0, 2)
+
+    collectionnames = db.list_collection_names()
+    for coll_name in collectionnames:
         if coll_name == emotion:
             for x in db[coll_name].find({},{ "_id": 0 }):
                 if (indexat == randint):
-                    return x['weblink']
+                    data = [x['weblink'], x["title"]]
+                    return data
                 else: 
                     indexat = indexat + 1
+    default = 'misc'
+    for x in db[default].find({},{ "_id": 0 }):
+        if (indexat == randint):
+            return [x['weblink'], x['title']]
+        else: 
+            indexat = indexat + 1
         

@@ -22,6 +22,7 @@ function SongSearch() {
           acousticness: res.acousticness,
           instrumentalness: res.instrumentalness,
           weblink: res.weblink,
+          artworktitle: res.arttitle,
         });
       })
       .catch((error) => {
@@ -77,7 +78,7 @@ function SongSearch() {
               <p>Loudness: {songData.loudness}</p>
               <p>Acousticness: {songData.acousticness}</p>
               <p>Instrumentalness: {songData.instrumentalness}</p>
-              <a href = {songData.weblink}> image </a>
+              <a href = {songData.weblink}> {songData.artworktitle} </a>
             </div>
           )}
         </fieldset>
