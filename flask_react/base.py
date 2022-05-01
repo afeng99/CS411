@@ -23,15 +23,13 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 #MongoDB 
 import pymongo
 from flask_pymongo import PyMongo
-from pymongo import MongoClient
 
 from pymongo import MongoClient
-MONGO_URI = 'mongodb+srv://sweproject:OAUTH@cs411.gjdy6.mongodb.net/artworks?retryWrites=true&w=majority'
+MONGO_URI = 'mongodb+srv://sweproject:AUTH@cs411.gjdy6.mongodb.net/artworks?retryWrites=true&w=majority'
 client = MongoClient(MONGO_URI)
 
-
-CLIENT_ID = 'OAUTH'
-CLIENT_SECRET = 'OAUTH'
+CLIENT_ID = 'AUTH'
+CLIENT_SECRET = 'AUTH'
 AUTH_URL = 'https://accounts.spotify.com/api/token'
 
 # POST
@@ -57,7 +55,7 @@ def my_song(track_id):
     # actual GET request with proper header
     r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
     r = r.json()
-    print(r)
+    # print(r)
     return r
 
 @api.route('/search')
@@ -100,8 +98,11 @@ def search():
         track_ID = spot_track_id[14:]
         r = my_song(track_ID)
         lyrics = scrape_lyrics(artistname,songname)
-        print(getAnalysis(lyrics))
-        get_art()
+        watsonanalysis = getAnalysis(lyrics)
+        songemotion = watsonanalysis['document_tone']['tones'][0]['tone_id']
+        print (songemotion)
+        r['weblink'] = get_art(songemotion)
+        print (r)
         return r
 
 def scrape_lyrics(artistname, songname):
@@ -123,7 +124,7 @@ def scrape_lyrics(artistname, songname):
     return lyrics
 
 def getAnalysis(lyrics):
-    authenticator = IAMAuthenticator('OAUTH')
+    authenticator = IAMAuthenticator('AUTH')
     tone_analyzer = ToneAnalyzerV3(
         version='2017-09-21',
         authenticator=authenticator
@@ -133,13 +134,17 @@ def getAnalysis(lyrics):
     tone_analysis = tone_analyzer.tone({'text': lyrics}, sentences=False).get_result()
     return (tone_analysis)
 
-def get_art():
+def get_art(emotion):
     print ("Hello Hello")
-    db = client.business
+    db = client.artworks
 
-    business = {
-            'name' : 'Kruthik',
-            'rating' : 5 }
-
-    result=db.reviews.insert_one(business)
-    print ("World World")
+    indexat = 0
+    randint = 0
+    for coll_name in db.list_collection_names():
+        if coll_name == emotion:
+            for x in db[coll_name].find({},{ "_id": 0 }):
+                if (indexat == randint):
+                    return x['weblink']
+                else: 
+                    indexat = indexat + 1
+        
