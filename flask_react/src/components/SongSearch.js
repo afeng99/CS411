@@ -1,6 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import "./SongSearch.css";
+import happy from './images/happy.jpg';
+import tentative from './images/tentative.jpg';
+import sadness from './images/sadness.jpg';
+import anger from './images/anger.jpg';
 
 function SongSearch() {
   const [songData, setSongData] = useState(null);
@@ -42,11 +46,36 @@ function SongSearch() {
   }
   return (
     <div className="SongSearch">
+      
+      <view style = {{position: 'absolute', width:1000, height: 500, top: 100,}}>
+      <img src={tentative}></img>
+      <p>Happy Now by kygo</p>
+      <p>Emotion: Tentative</p>
+      </view>
+
+      <view style = {{position: 'absolute', width:1000, height: 500, marginRight: 100, top: 470,}}>
+      <img src={happy}></img>
+      <p>Location by Khalid</p>
+      <p>Emotion: Joy</p>
+      </view>
+
+      
+      <view style = {{position: 'absolute', width:0, top: 100,}}>
+      <img src={sadness}></img>
+      <p>Payphone by Maroon 5</p>
+      <p>Emotion: Sadness</p>
+      </view>
+
+      <view style = {{position: 'absolute', width:0, height: 500, top: 470,}}>
+      <img src={anger}></img>
+      <p>deja vu by Olivia Rodrigo</p>
+      <p>Emotion: Anger</p>
+      </view>
+    
+
       <header className="SongSearch-header">
         <a href="/">Home Page</a>
-
         <fieldset>
-          <legend>Welcome</legend>
           <ul>
             <li>
               <p>Song Name:</p>
