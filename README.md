@@ -48,7 +48,7 @@ $ npm install react-router-dom
 $ npm start
 ```
 
-### Backend set-up (in a new termianal within the flask_react folder)
+### Backend set-up (in a new terminal within the flask_react folder)
 ```
 $ pip install flask
 $ pip install python-dotenv
