@@ -44,7 +44,7 @@ $ cd flask_react
 ### Frontend set-up
 ```
 $ npm install --save react react-dom react-scripts
-$ nom install react-router-dom
+$ npm install react-router-dom
 $ npm start
 ```
 
