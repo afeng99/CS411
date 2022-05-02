@@ -1,4 +1,34 @@
 .Login {
     text-align: center;
-  
 }
+
+h1 {
+    font-style: italic;
+    font-size: 50px;
+    color: antiquewhite;
+    font-weight: 100;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    
+}
+
+body {
+    background-size: cover;
+    background-image: url("https://miro.medium.com/max/1200/0*WilMp22weCX_gdOa");
+}
+
+section {
+    background-color: rgba(139, 69, 19, 0.447);
+}
+
+.Button {
+    background-color: slategrey;
+    width: 150px
+    
+}
+
+a {
+    color: firebrick;
+    font-size: 20px
+}
+
+
