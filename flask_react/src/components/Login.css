@@ -1,6 +1,10 @@
 .Login {
     text-align: center;
-    background-color: black;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.Login-link {
+    color: #b05236;
 }
 
 h1 {
@@ -14,7 +18,8 @@ h1 {
 
 body {
     background-size: cover;
-    background-image: url("https://miro.medium.com/max/1200/0*WilMp22weCX_gdOa");
+    background-position: center top; /*Center the image */
+    background-image: url(./images/login_background.jpg);
 }
 
 section {
@@ -22,14 +27,16 @@ section {
 }
 
 .Button {
-    background-color: slategrey;
-    width: 150px
-    
+    background-color: transparent;
+    color: #b05236;
+    width: 150px;
+     
 }
 
 a {
-    color: bisque;
-    font-size: 20px
+    color: #b05236;
+    font-family: 'Times New Roman', Times, serif;
+    /* font-size: medium */
 }
 
 
