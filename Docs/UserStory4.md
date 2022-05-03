@@ -1,10 +1,9 @@
 #User Story 4
 
-As a user, I want to be able to view some recommended artwork and song pairings to see other examples.
+As a user, I want to be able to view some recommended artwork and song pairings to see whether or not I want to use the application.
 
-This is important to the application because the user will be able to view their “progress” over time with how their Spotify listening history corresponds to their moods. It will work as a log of their listening history over time, with the ability to go back and view previous artwork/song matches. The user can see the images of the artwork, and click to be redirected to the song associated with that piece of art. 
+This is important to the application because the user will be able to view example artwork and song pairings and it will illustrate what the webvapplication will do. It gives a user a better understanding of whether or not they want to use our web application. 
 	
-The ideal case is the user wanting to some listening/artwork paired history of all users in the app. They would click on the history page and be able to scroll through the previous pairings to find new artwork from songs they may be familiar with.
+The ideal case is the user finds our web application and is curious about what it does. It will look at the example pairings and will want to get an artwork for a song they have been recently listening to. They will therefore log in to the web application with their spotify account and proceed to getting the song/artwork pairing the user wanted. 
 
-An exception to this would be if a lot of people utilize the application often because it may be difficult for the user to find a song or artwork again. This can be solved by the user reentering the song into the search feature and having either the same or a similar piece of artwork recommended. 
-
+An exception to this would be if the user does not find the artwork/song pairings good or interesting. They come to the web application expecting a specific style of art and they don't like the pairings they are seeing as examples. This can be solved by making the artwork generation more catered to the user's wants and add a filter option where they can select the style of art they want to see for example.  
