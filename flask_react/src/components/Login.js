@@ -16,34 +16,26 @@ class Login extends React.Component {
 
       <div className="Login">
 
-      <view>
       <h1>To Start Your Journey</h1>
-      <button className="Button">
+      <button className="Button a">
         <a
-          href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
+          >
           Login to Spotify
         </a>
       </button>
-      </view>
-       
-
-      <view style = {{position: 'absolute', width:1000, height: 1000, top: 500, left:600}}>
+      <Button href variant="outline-primary">Primary</Button>{' '}
+      <Button href="href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`">Login to Spotify</Button> <Button type="submit">Button</Button>{' '}
       <img src={tentative}></img>
       <p>Happy Now by kygo</p>
       <p>Emotion: Tentative</p>
-      </view>
 
-      <view style = {{position: 'absolute', width:500, top: 500, left:10}}>
       <img src={sadness}></img>
       <p>Payphone by Maroon 5</p>
       <p>Emotion: Sadness</p>
-      </view>
 
-      <view style = {{position: 'absolute', width:1000, height:500, top: 500, left:170}}>
       <img src={anger}></img>
       <p>deja vu by Olivia Rodrigo</p>
       <p>Emotion: Anger</p>
-      </view>
 
       </div>
     );
