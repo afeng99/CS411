@@ -1,5 +1,6 @@
 .Login {
     text-align: center;
+    background-color: black;
 }
 
 h1 {
@@ -32,3 +33,9 @@ a {
 }
 
 
+p {
+    color: black;
+    font-style: normal;
+  }
+
+  
