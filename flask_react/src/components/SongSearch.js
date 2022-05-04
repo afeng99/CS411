@@ -46,31 +46,34 @@ function SongSearch() {
   }
   return (
     <div className="SongSearch">
-      
       <header className="SongSearch-header">
-        <a href="/">Home Page</a>
-        <fieldset>
-          <ul>
-            <li>
-              <p>Song Name:</p>
-              <input
-                type="text"
-                value={songValue}
-                onChange={handleSongChange}
-              />
-            </li>
-            <li>
-              <p>Artist Name:</p>
-              <input
-                type="text"
-                value={artistValue}
-                onChange={handleArtistChange}
-              />
-            </li>
-          </ul>
-          <p>To get song information: </p>
+          <a href="/">Home Page</a>
 
-          <button onClick={getData}>Click me</button>
+          <br>
+          </br>
+    
+          <div>
+          <p>Song Name:</p>
+          <input
+            type="text"
+            value={songValue}
+            onChange={handleSongChange}
+          />
+          
+          <br>
+          </br>
+
+          <p>Artist Name:</p>
+          <input
+            type="text"
+            value={artistValue}
+            onChange={handleArtistChange}
+          />
+
+        <br>
+        </br>
+
+          <button className="search_button" onClick={getData}>Get results</button>
           {songData && (
             <div>
               <p>{"Name: " + songValue}</p>
@@ -84,7 +87,7 @@ function SongSearch() {
               <a href = {songData.weblink}> {songData.artworktitle} </a>
             </div>
           )}
-        </fieldset>
+        </div>
       </header>
     </div>
   );

@@ -1,6 +1,7 @@
 .SongSearch {
   text-align: center;
-  background-color: black;
+  align-items: center;
+  background-color: #d07d57;
   
 }
 
@@ -53,7 +54,7 @@ p {
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding-left: 0px;
 }
 
 li {
@@ -61,26 +62,44 @@ li {
 }
 
 fieldset {
-  border: 2px solid rgb(255, 242, 0);
-  border-radius: 10px;
+  padding-left: 0px;
 }
 legend {
   font-size: larger;
   font-family: "Courier New", Courier, monospace;
 }
-button {
-  border-radius: 60px;
-  color: bisque;
-  background-color: rgb(255, 179, 80);
-  width: 120px;
-  height: 40px;
+button.search_button{
+  height: fit-content;
+  width: 200px;
+  padding: 10px;
+  margin: auto;
+  background-color: #b05236;
+  border-radius: 15px;
+  border: 2px solid #e2ebe5;
+  margin-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
   font-size: large;
-  font-family:'Courier New', Courier, monospace;
-  font-style: oblique;
+
 }
-a {
+
+.search_button:hover{
+  background-color: #e2ebe5;
+  color: #b05236;
+  transform: 0.7s;
+  
+}
+.SongSearch a {
+  color: #e2ebe5;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 30px;
+
+}
+
+.SongSearch a:hover {
   color: black;
-  font-family: 'Times New Roman', Times, serif;
 }
 
 
