@@ -17,7 +17,7 @@ Our application uses an artwork emotion dataset to match Spotify songs to famous
       └── pitches.md            # Original project pitches
     ├── Prototype               # Contains most up-to-date functioning prototype
         ├── src                 # Contains source files
-        ├── Demo Video.mp4      # Demo Video
+        ├── FinalVideo.mp4      # Demo Video
         └── base.py             # Current backend
     ├── flask_react             # Contains current application
         ├── backend
