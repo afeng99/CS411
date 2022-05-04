@@ -49,8 +49,6 @@ function SongSearch() {
       <header className="SongSearch-header">
           <a href="/">Home Page</a>
 
-          <br>
-          </br>
     
           <div>
           <p>Song Name:</p>

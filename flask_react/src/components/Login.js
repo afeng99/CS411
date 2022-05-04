@@ -21,12 +21,11 @@ class Login extends React.Component {
 
     return (
 
-      <body>
+      
       <div className="Login">
 
       <h1>Sentiment Matching: Song and Painting</h1>
 
-        
       <div>
         <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}> 
          <button className="login_button" >
@@ -55,12 +54,11 @@ class Login extends React.Component {
       </Row>
       </Container>
 
+      </div>
+
+      </div>
+
       
-
-      </div>
-      </div>
-
-      </body>
 
       
     );
