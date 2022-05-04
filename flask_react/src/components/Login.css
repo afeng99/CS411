@@ -1,18 +1,44 @@
 .Login {
     text-align: center;
-    background-color: rgba(255,255,255,0.5);
+    margin-top: 75px;
 }
 
 .Login-link {
     color: #b05236;
 }
 
+button.login_button{
+    height: fit-content;
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    background-color: #b05236;
+    border-radius: 15px;
+    border: 2px solid #e2ebe5;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+
+}
+
+.login_button:hover{
+    background-color: #e2ebe5;
+    color: #b05236;
+    transform: 0.7s;
+    
+}
+
+.Examples {
+    text-align: center;
+    margin-top: 325px;
+}
+
 h1 {
-    font-style: italic;
-    font-size: 50px;
-    color: antiquewhite;
+    font-size: 75px;
+    color: #e2ebe5;
     font-weight: 100;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    font-family: Arial, Helvetica, sans-serif sans-serif
     
 }
 
@@ -21,23 +47,6 @@ body {
     background-position: center top; /*Center the image */
     background-image: url(./images/login_background.jpg);
     background-repeat: no-repeat;
-}
-
-section {
-    background-color: rgba(139, 69, 19, 0.447);
-}
-
-.Button a {
-    background-color: transparent;
-    color: #b05236;
-    width: 150px;
-     
-}
-
-a {
-    color: #b05236;
-    font-family: 'Times New Roman', Times, serif;
-    /* font-size: medium */
 }
 
 
